@@ -1,14 +1,6 @@
-require('plugins')
-vim.cmd("colorscheme kanagawa")
 
 
+ require("symmetry.remaps");
+ require("symmetry.set");
+ require("symmetry.packer");
 
-------------- Typescript ----------------
-require('_customs')
-require('_lualine')
-require('_lspconfig')
-require('_cmp-lspkind')
-require('_bufferline')
-require('_lspsaga')
-
-------------- Fluttter -----------------
