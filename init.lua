@@ -1,4 +1,3 @@
- require("symmetry.remaps");
- require("symmetry.set");
- require("symmetry.packer");
-
+require("symmetry.remaps");
+require("symmetry.set");
+require("symmetry.packer");

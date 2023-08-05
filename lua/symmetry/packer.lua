@@ -2,12 +2,14 @@ require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     -- use "AhmedAbdulrahman/vim-aylin.nvim"
+    use 'numToStr/Comment.nvim'
     use 'rebelot/kanagawa.nvim'
     use { 'nvim-lualine/lualine.nvim', rs = { 'nvim-tree/nvim-web-devicons' } }
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
-
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = {
+            { 'nvim-lua/plenary.nvim' }
+        }
     }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
