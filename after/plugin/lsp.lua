@@ -1,5 +1,3 @@
--- Learn the keybindings, see :help lsp-zero-keybindings
--- Learn to configure LSP servers, see :help lsp-zero-api-showcase
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
@@ -14,4 +12,3 @@ lsp.setup({
 "sumneko_lua"
 })
 
-vim.api.nvim_set_keymap('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
