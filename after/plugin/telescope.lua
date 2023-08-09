@@ -14,11 +14,9 @@ end
 
 
 
-vim.keymap.set('n', '<leader>f', function()
-    if isGit() then
-        return builtin.git_files()
-    end
-    return builtin.find_files()
-end, {})
+vim.keymap.set('n', '<leader>g', builtin.git_files)
+vim.keymap.set('n', '<leader>f', builtin.find_files)
+
+
 
 
