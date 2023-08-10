@@ -17,8 +17,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         local opts = { buffer = ev.buf }
-    
-        vim.keymap.set({ "n", "v" }, "<A-F>",vim.lsp.buf.format)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
@@ -36,13 +34,27 @@ lsp.nvim_workspace()
 lspconfig.clangd.setup({
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
 })
-lsp.setup({})
+lsp.setup({
+    "tsserver",
+    "eslint",
+    "rust_analyzer",
+    "dart_analyzer",
+    "sumneko_lua"
+})
+
 
 cmp.setup({
-    mapping = {
+    sources = { { name = 'nvim_lsp' } },
+    mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+    }),
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+        end,
     },
 })
+
 
 null_ls.setup({
     sources = { null_ls.builtins.formatting.prettierd }
