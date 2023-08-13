@@ -15,7 +15,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
         local opts = { buffer = ev.buf }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -31,20 +30,24 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 lsp.preset('recommended')
 lsp.nvim_workspace()
+
 lspconfig.clangd.setup({
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
 })
+
+-- Setting up dart server
+lspconfig.dartls.setup{}
+
+
 lsp.setup({
     "tsserver",
     "eslint",
     "rust_analyzer",
-    "dart_analyzer",
-    "sumneko_lua"
+    "sumneko_lua",
 })
 
-
 cmp.setup({
-    sources = { { name = 'nvim_lsp' } },
+
     mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     }),
