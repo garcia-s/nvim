@@ -4,9 +4,8 @@ require('packer').startup(function(use)
     -- use "AhmedAbdulrahman/vim-aylin.nvim"
     use 'numToStr/Comment.nvim'
     use 'rebelot/kanagawa.nvim'
-    use { 'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
+    use { 'nvim-lualine/lualine.nvim' }
+    use { 'nvim-tree/nvim-web-devicons' }
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         requires = {

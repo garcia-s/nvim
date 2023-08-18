@@ -31,12 +31,36 @@ vim.api.nvim_create_autocmd('LspAttach', {
 lsp.preset('recommended')
 lsp.nvim_workspace()
 
+
+local cmp_mapping = cmp.mapping.preset.insert({
+    ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+})
+
+
+cmp_mapping['<Tab>'] = nil;
+cmp_mapping['<S-Tab>'] = nil;
+
+
+
+lsp.setup_nvim_cmp({
+    mapping = cmp_mapping,
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+        end,
+    },
+})
+
+
+
+
 lspconfig.clangd.setup({
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
 })
 
 -- Setting up dart server
-lspconfig.dartls.setup{}
+lspconfig.dartls.setup {}
 
 
 lsp.setup({
@@ -45,19 +69,6 @@ lsp.setup({
     "rust_analyzer",
     "sumneko_lua",
 })
-
-cmp.setup({
-
-    mapping = cmp.mapping.preset.insert({
-        ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-    }),
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
-})
-
 
 null_ls.setup({
     sources = { null_ls.builtins.formatting.prettierd }
