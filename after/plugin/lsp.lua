@@ -6,9 +6,10 @@ local mason = require("mason")
 
 
 lsp.on_attach(function(client, bufnr)
+ 
+    opts = {buffer = bufnr}
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-
-    vim.keymap.set('n', 'E', vim.diagnostic.show, opts)
+    vim.keymap.set('n', 'E', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, opts)
