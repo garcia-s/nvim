@@ -23,18 +23,17 @@ require('packer').startup(function(use)
             { 'hrsh7th/nvim-cmp' },                  -- Required
             { 'hrsh7th/cmp-nvim-lsp' },              -- Required
             { 'L3MON4D3/LuaSnip' },                  -- Required
+            { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-cmdline' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-nvim-lua' },
         }
     }
-    use({
-        "jackMort/ChatGPT.nvim",
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    })
+
+    use "rafamadriz/friendly-snippets"
+    use "lukas-reineke/indent-blankline.nvim"
+    use 'm4xshen/autoclose.nvim'
 end);
+
+

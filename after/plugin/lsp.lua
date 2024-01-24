@@ -5,6 +5,7 @@ local lsp = require('lsp-zero')
 local cmp = require('cmp')
 local mason = require("mason")
 
+require("luasnip.loaders.from_vscode").lazy_load()
 
 lsp.on_attach(function(client, bufnr)
     opts = { buffer = bufnr }
