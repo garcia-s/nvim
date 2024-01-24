@@ -1,13 +1,13 @@
 -- Setup language servers.
-local lspconfig = require('mason-lspconfig')
+local mason_lspconfig = require('mason-lspconfig')
+local lspconfig = require('lspconfig');
 local lsp = require('lsp-zero')
 local cmp = require('cmp')
 local mason = require("mason")
 
 
 lsp.on_attach(function(client, bufnr)
- 
-    opts = {buffer = bufnr}
+    opts = { buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'E', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -21,12 +21,41 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 mason.setup()
+
 lsp.preset('recommended')
-lspconfig.setup({
-    ensure_installed = {},
+
+
+mason_lspconfig.setup({
+    ensure_installed = { 'tsserver', 'bashls', 'gopls' },
     handlers = {
         lsp.default_setup,
     },
+})
+
+lspconfig.intelephense.setup({
+    settings = {
+        intelephense = {
+            stubs = {
+                "bcmath",
+                "bz2",
+                "calendar",
+                "Core",
+                "curl",
+                "zip",
+                "zlib",
+                "wordpress",
+                "woocommerce",
+                "acf-pro",
+                "wordpress-globals",
+                "wp-cli",
+                "genesis",
+                "polylang"
+            },
+            files = {
+                maxSize = 5000000,
+            },
+        },
+    }
 })
 
 
@@ -50,6 +79,5 @@ lsp.setup_nvim_cmp({
         end,
     },
 })
-
 
 lsp.setup()
