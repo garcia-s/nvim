@@ -10,7 +10,6 @@ require('packer').startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'theprimeagen/harpoon'
-    use 'mhartington/formatter.nvim'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',

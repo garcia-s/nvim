@@ -27,7 +27,6 @@ lsp.preset('recommended')
 
 
 mason_lspconfig.setup({
-    ensure_installed = { 'tsserver', 'bashls', 'gopls' },
     handlers = {
         lsp.default_setup,
     },
