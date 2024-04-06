@@ -1,0 +1,20 @@
+*symmetry.nvim.txt*                                     
+
+=====================================================================================
+
+
+Tabla de contenidos                                  *symmetry.nvim-table-of-contents*
+
+1. Instalacion                                          
+    -Instalacion para Windows                              |symmetry.nvim-win-install|
+    -Instalacion para Linux/Unix                          |symmetry.nvim-unix-install|
+2. Atajos del teclado preconfiguradas                        |symmetry.nvim-shortcuts|
+3. Cambiar configuración                                     |symmetry.nvim-customize|
+
+==============================================================================
+
+
+Instalación en Windows:
+
+
+

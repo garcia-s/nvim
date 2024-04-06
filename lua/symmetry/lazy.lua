@@ -2,21 +2,20 @@ require "lazy".setup {
     -- I NEED TO START USING TMUX
     { "christoomey/vim-tmux-navigator", lazy = false },
     "numToStr/Comment.nvim",
-    "rebelot/kanagawa.nvim",
-    "lunarvim/Onedarker.nvim",
     "nvim-lualine/lualine.nvim",
     "nvim-tree/nvim-web-devicons",
-    { "nvim-telescope/telescope.nvim",  tag = "0.1.2" },
-    "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope.nvim",  tag = "0.1.5",                         dependencies = "nvim-lua/plenary.nvim" },
+    { "kdheepak/lazygit.nvim",          dependencies = "nvim-lua/plenary.nvim" },
     { "nvim-treesitter/nvim-treesitter" }, -- Should Execute :TSUpdate
     "theprimeagen/harpoon",
-    "mhartington/formatter.nvim",
     -- LSP things and stuffssss
     'williamboman/mason.nvim',
-    { 'VonHeikemen/lsp-zero.nvim',      branch = 'v3.x' },
+    { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-    'hrsh7th/cmp-nvim-lsp', 'hrsh7th/nvim-cmp',
+    'neovim/nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-path',
@@ -26,4 +25,6 @@ require "lazy".setup {
     "rafamadriz/friendly-snippets",
     "lukas-reineke/indent-blankline.nvim",
     'm4xshen/autoclose.nvim',
+    --ColorSchemes
+    "nyoom-engineering/oxocarbon.nvim",
 }
