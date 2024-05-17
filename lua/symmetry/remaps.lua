@@ -3,7 +3,8 @@ function format_code()
     vim.lsp.buf.format({ async = false, timeout = 2000 })
     vim.diagnostic.enable(0);
 end
---Workaround for Cosmic Terminal 
+
+--Workaround for Cosmic Terminal
 vim.keymap.set("n", "ª", format_code)
 vim.keymap.set("n", "<A-F>", format_code)
 vim.keymap.set("n", "<C-s>", ':<c-u>write<cr>')

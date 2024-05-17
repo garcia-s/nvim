@@ -5,8 +5,6 @@ local lsp_zero = require('lsp-zero')
 local cmp = require('cmp')
 local mason = require("mason")
 
-require("luasnip.loaders.from_vscode").lazy_load()
-
 
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
@@ -41,29 +39,27 @@ lspconfig.intelephense.setup({
     settings = {
         intelephense = {
             stubs = {
-                "bcmath",
-                "bz2",
-                "calendar",
-                "Core",
-                "curl",
-                "zip",
-                "zlib",
+                "core",
                 "wordpress",
                 "woocommerce",
-                "acf-pro",
                 "wordpress-globals",
-                "wp-cli",
-                "genesis",
-                "polylang"
+            },
+            environment = {
+                phpVersion = "8.3.6"
             },
             files = {
                 maxSize = 5000000,
             },
+            diagnostics = {
+                undefinedConstants = false
+            }
         },
     }
 })
 
+lspconfig.arduino_language_server.setup{}
 lspconfig.dartls.setup({});
+
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 require('luasnip.loaders.from_vscode').lazy_load()
 
