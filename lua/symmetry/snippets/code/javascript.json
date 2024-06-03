@@ -1,0 +1,15 @@
+{
+    "JEST AAA TEST": {
+        "prefix": [
+            "aaa"
+        ],
+        "body": [
+            "test($1:string, () => {",
+            "//Arrange",
+            "//Act",
+            "//Assert",
+            "})"
+        ],
+        "description": "Arrange act assert test template"
+    }
+}

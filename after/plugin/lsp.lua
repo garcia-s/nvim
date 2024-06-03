@@ -35,6 +35,12 @@ mason_lspconfig.setup({
 })
 
 
+lspconfig.jsonls.setup({
+    formatting = {
+        timeout_ms = 6000000000,
+    }
+})
+
 lspconfig.intelephense.setup({
     settings = {
         intelephense = {
@@ -57,11 +63,10 @@ lspconfig.intelephense.setup({
     }
 })
 
-lspconfig.arduino_language_server.setup{}
+lspconfig.arduino_language_server.setup {}
 lspconfig.dartls.setup({});
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
     sources = {
