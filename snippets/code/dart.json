@@ -1,10 +1,17 @@
 {
     "JEST AAA TEST": {
         "prefix": [
-            "aaa"
+            "precum", "precumming"
         ],
         "body": [
-            "var foo = 32"
+            "class MyWidget extends StatelessWidget {",
+            "const MyWidget({super.key});",
+            "",
+            "@override",
+            "Widget build(BuildContext context {",
+            "return const Placeholder();",
+            "}",
+            "}"
         ],
         "description": "Arrange act assert test template"
     }

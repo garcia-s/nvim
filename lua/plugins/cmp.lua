@@ -1,6 +1,5 @@
 return {
-
-    "hrsh7th/nvim-cmp",
+"hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-buffer", -- source for text in buffer
@@ -23,8 +22,7 @@ return {
         local cmp = require("cmp")
 
         require("luasnip.loaders.from_vscode").lazy_load({
-            path = "./snippets/code",
-
+            paths = "./snippets/code",
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -32,7 +30,7 @@ return {
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "nvim_lua" },
-                { name = "luasnip", keyword_length = 2 },
+                { name = "luasnip" },
                 { name = "buffer",  keyword_length = 3 },
                 { name = "path" },
             }),
