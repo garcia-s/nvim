@@ -14,7 +14,10 @@ Tabla de contenidos                                  *symmetry.nvim-table-of-con
 ==============================================================================
 
 
-Instalación en Windows:
+Instalación para Windows:
+
+
+Instalación para Linux
 
 
 

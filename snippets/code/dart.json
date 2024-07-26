@@ -1,0 +1,11 @@
+{
+    "JEST AAA TEST": {
+        "prefix": [
+            "aaa"
+        ],
+        "body": [
+            "var foo = 32"
+        ],
+        "description": "Arrange act assert test template"
+    }
+}
