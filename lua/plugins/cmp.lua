@@ -7,19 +7,28 @@ return {
         {
             "L3MON4D3/LuaSnip",
             version = "v2.*",
+            build = "make install_jsregexp",
+            dependencies = {
+                "rafamadriz/friendly-snippets",
+                'saadparwaiz1/cmp_luasnip'
+            }
         },
-        { 'saadparwaiz1/cmp_luasnip' },
         {
             'VonHeikemen/lsp-zero.nvim',
             branch = 'v3.x'
         },
-        "rafamadriz/friendly-snippets",
     },
     config = function()
         local cmp = require("cmp")
-
+        local ls = require("luasnip")
+        ls.config.set_config {
+            updateevents = "TextChanged, TextChangedI",
+        }
+        require("luasnip.loaders.from_vscode").lazy_load({})
         require("luasnip.loaders.from_vscode").lazy_load({
-            paths = { "/home/symmetry/.config/nvim/symmetry-snippets" },
+            paths = {
+                vim.fn.expand("./symmetry-snippets"),
+            }
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -27,14 +36,14 @@ return {
 
             snippet = {
                 expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
+                    ls.lsp_expand(args.body)
                 end,
             },
             sources = cmp.config.sources({
-                { name = "path",    keyword_length = 3 },
-                { name = "nvim_lsp" },
                 { name = "luasnip" },
+                { name = "nvim_lsp" },
                 { name = "nvim_lua" },
+                { name = "path",    keyword_length = 3 },
                 { name = "buffer",  keyword_length = 3 },
             }),
             mapping = cmp.mapping.preset.insert({
@@ -44,12 +53,5 @@ return {
                 ['<C-Space>'] = cmp.mapping.complete(),
             }),
         })
-
-        vim.cmd([[
-      set completeopt=menuone,noinsert,noselect
-      highlight! default link CmpItemKind CmpItemMenuDefault
-    ]])
     end,
 }
-
-

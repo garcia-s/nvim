@@ -4,12 +4,36 @@
             "aaa"
         ],
         "body": [
-            "test($1:string, () => {",
+            "test(\"${TestName}\", () => {",
             "//Arrange",
             "//Act",
             "//Assert",
             "})"
         ],
         "description": "Arrange act assert test template"
+    },
+    "for-loop": {
+        "prefix": [
+            "for",
+            "for-const"
+        ],
+        "body": [
+            "for ${1:index} = 0; ${1} < ${2:list}.length; {${1:index}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "A for loop."
+    },
+    "react-component": {
+        "prefix": [
+            "rec"
+        ],
+        "body": [
+            "function ${1:placeholder}()  {",
+            "    return <div></div>",
+            "}",
+            " export ${1:placeholde}"
+        ],
+        "description": "A for loop."
     }
 }

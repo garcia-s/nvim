@@ -1,0 +1,23 @@
+{
+    "go test": {
+        "prefix": [
+            "test"
+        ],
+        "body": [
+            "func Test$1 (t *testing.T) { \n",
+            "//test stuff",
+            "}"
+        ],
+        "description": "Creates a golang test"
+    },
+    "go func": {
+        "prefix": [
+            "gofunc"
+        ],
+        "body": [
+            "go func() { \n",
+            "}()"
+        ],
+        "description": "Creates an anonymous go routine"
+    }
+}

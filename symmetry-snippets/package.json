@@ -10,6 +10,10 @@
                 "path": "./snippets/dart.json"
             },
             {
+                "language": "go",
+                "path": "./snippets/go.json"
+            },
+            {
                 "language": [
                     "javascript",
                     "javascriptreact"
