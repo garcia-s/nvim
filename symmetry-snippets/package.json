@@ -1,0 +1,28 @@
+{
+    "name": "symmetry-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "dart",
+                "path": "./snippets/dart.json"
+            },
+            {
+                "language": [
+                    "javascript",
+                    "javascriptreact"
+                ],
+                "path": "./snippets/javascript.json"
+            },
+            {
+                "language": [
+                    "typescript",
+                    "typescriptreact"
+                ],
+                "path": "./snippets/typescript.json"
+            }
+        ]
+    }
+}

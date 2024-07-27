@@ -29,6 +29,6 @@ o.wildmenu = true
 
 -- Show (partial) command in the last line of the screen. Set this option off if your terminal is slow.
 o.showcmd = true
-o.hlsearch = true
+o.hlsearch = false 
 o.incsearch = true
 o.termguicolors = true
