@@ -1,7 +1,8 @@
 {
     "JEST AAA TEST": {
         "prefix": [
-            "precum", "precumming"
+            "precum",
+            "precumming"
         ],
         "body": [
             "class MyWidget extends StatelessWidget {",

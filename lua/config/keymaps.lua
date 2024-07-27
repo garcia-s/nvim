@@ -1,20 +1,38 @@
 local builtin = require('telescope.builtin')
 local api = require("Comment.api")
 local harpoon = require("harpoon")
-local cmp = require("cmp")
 ------------ General -------------
+
+
+-- abre el explorador de archivos normal
+-- space->l->s
 vim.keymap.set("n", "<leader>ls", vim.cmd.Ex)
 
+
 ---------------- Telescope ----------------
+-- Abre el buscador de telescope solo con los archivos de git
+-- Space->g
 vim.keymap.set("n", "<leader>g", builtin.git_files)
+
+-- Abre el buscador de telescope con todos los archivos
+-- Space->f
 vim.keymap.set("n", "<leader>f", builtin.find_files)
+
+-- Abre LiveGrep y te permite buscar archivos que contengan una cadena de texto
+-- Space->l->g
 vim.keymap.set("n", "<leader>lg", builtin.live_grep)
 
 
 --------------- LSP --------------------
 
 
+-- Te lleva al archivo y linea de definicion de
+-- una clase, struct, variable o funcion
+-- g->d
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
+-- Te muestra la definicion de una
+-- una clase, struct, variable o funcion
+-- CTRL+k
 vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.hover() end)
 -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
 vim.keymap.set('n', 'gi', function() vim.lsp_zero.buf.implementation() end)
@@ -32,7 +50,7 @@ local function format_code()
     -- Old workaround for dart
     vim.diagnostic.enable(true);
 end
---Workaround for Cosmic Terminal
+---- Workaround for Cosmic Terminal
 vim.keymap.set("n", "ª", format_code)
 vim.keymap.set("n", "<A-F>", format_code)
 vim.keymap.set("n", "<C-s>", ':<c-u>write<cr>')
