@@ -19,5 +19,19 @@
             "}()"
         ],
         "description": "Creates an anonymous go routine"
+    },
+    "for select": {
+        "prefix": [
+            "forsel"
+        ],
+        "body": [
+            "for {",
+            "\tselect {",
+            "\tcase $1:",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Creates a golang test"
     }
 }

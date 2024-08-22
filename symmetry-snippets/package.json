@@ -26,6 +26,10 @@
                     "typescriptreact"
                 ],
                 "path": "./snippets/typescript.json"
+            },
+            {
+                "language": "markdown",
+                "path": "./snippets/markdown.json"
             }
         ]
     }

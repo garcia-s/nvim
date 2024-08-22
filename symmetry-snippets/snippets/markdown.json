@@ -1,0 +1,27 @@
+{
+    "micro-project": {
+        "prefix": [
+            "cmp"
+        ],
+        "body": [
+            "#Microproyecto ${1} - ${2:Nombre}",
+            "",
+            "## Descripción",
+            "",
+            "### Imagenes de referencia",
+            "",
+            "",
+            "![$2]($3)",
+            "",
+            "",
+            "$4",
+            "",
+            "---",
+            "",
+            "## Conceptos a aprender",
+            "",
+            "- $0"
+        ],
+        "description": "Arrange act assert test template"
+    }
+}
