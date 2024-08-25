@@ -9,7 +9,7 @@ o.clipboard = "unnamedplus"
 o.syntax = "on"
 o.nu = true
 -- Copy indent from current line when starting a new line.
-o.autoindent = true
+o.autoindent = false
 o.expandtab = true
 -- Number of spaces to use for each step of (auto)indent.
 o.shiftwidth = 4
