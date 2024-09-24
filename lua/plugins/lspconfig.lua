@@ -20,6 +20,9 @@ return {
             lsp_zero.default_setup,
             nvim_lsp.dartls.setup {
                 capabilities = capabilities,
+            },
+            nvim_lsp.clangd.setup {
+                capabilities = capabilities,
             }
         })
     end,
