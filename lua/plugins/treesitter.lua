@@ -3,14 +3,33 @@ return {
     build = ":TSUpdate",
     lazy = false,
     config = function()
-        local treesitter = require("nvim-treesitter.configs")
-        treesitter.setup({
+        --Stolen from tjdevries
+        vim.filetype.add {
+            extension = {
+                templ = "templ"
+            }
+        }
+        vim.treesitter.language.register('templ', 'templ')
+        local configs = require("nvim-treesitter.configs")
+
+        if not configs.templ then
+            configs.templ = {
+                default_config = {
+                    cmd = { "templ", "lsp" },
+                    filetypes = { 'templ' },
+                    root_dir = require "lspconfig.util".root_pattern("go.mod", ".git"),
+                    settings = {},
+                },
+            }
+        end
+
+        configs.setup({
             auto_install = true,
             highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = false,
             },
-            indent = { enable = true },
+            indent = { enable = false },
             autotag = {
                 enable = true,
             },
