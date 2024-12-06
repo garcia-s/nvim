@@ -12,25 +12,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         os.exit(1)
     end
 end
-vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
+
+vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Setup lazy.nvim
 require("lazy").setup({
-
-    { dir = "./config/keymaps.lua", event = "VeryLazy" },
-    spec = {
-        -- import your plugins
-        { import = "plugins" },
-
-    },
-
+    spec = { { import = "plugins" } },
     install = { colorscheme = { "oxocarbon" } },
-    -- automatically check for plugin updates
     checker = { enabled = true },
 })
+-- Loading Keymaps after the setup
+require("config.keymaps")

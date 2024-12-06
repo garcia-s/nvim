@@ -39,20 +39,22 @@ vim.keymap.set('n', 'gi', function() vim.lsp_zero.buf.implementation() end)
 vim.keymap.set("n", "E", function() vim.diagnostic.open_float() end)
 vim.keymap.set("n", "<leader>j", function() vim.diagnostic.goto_next() end)
 vim.keymap.set("n", "<leader>k", function() vim.diagnostic.goto_prev() end)
-vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end)
+vim.keymap.set("n", "<leader>c", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end)
-vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
+vim.keymap.set("i", "<leader>h", function() vim.lsp.buf.signature_help() end)
 
+
+
+vim.diagnostic.enable(true)
 
 
 local function format_code()
-    vim.lsp.buf.format({ async = true })
-    -- Old workaround for dart
-    vim.diagnostic.enable(true)
+    vim.lsp.buf.format({ async = false })
+    -- Old workaroundfalse for dart
+    vim.diagnostic.show()
 end
 ---- Workaround for Cosmic Terminal
-vim.keymap.set("n", "ª", format_code)
 vim.keymap.set("n", "<A-F>", format_code)
 vim.keymap.set("n", "<C-s>", ':<c-u>update<cr>')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -68,8 +70,7 @@ vim.keymap.set({ "n", "x" }, "<C-]>", function()
     api.toggle.linewise(vim.fn.visualmode())
 end)
 
-
----------------- Comment Block ----------------
+-- TODO: implement comment block
 
 
 

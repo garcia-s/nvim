@@ -23,12 +23,4 @@ return {
 
     },
     { 'nvim-telescope/telescope-fzf-native.nvim' },
-    {
-        dir = "config",
-        name = "whatever",
-        config = function(_)
-            require("config.keymaps")
-        end,
-        event = "VeryLazy"
-    }
 }
