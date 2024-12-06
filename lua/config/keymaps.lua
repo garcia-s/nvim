@@ -42,19 +42,14 @@ vim.keymap.set("n", "<leader>k", function() vim.diagnostic.goto_prev() end)
 vim.keymap.set("n", "<leader>c", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end)
-vim.keymap.set("i", "<leader>h", function() vim.lsp.buf.signature_help() end)
 
-
-
-vim.diagnostic.enable(true)
-
+-- Old workaround for dart
 
 local function format_code()
-    vim.lsp.buf.format({ async = false })
-    -- Old workaroundfalse for dart
-    vim.diagnostic.show()
+    vim.lsp.buf.format({ async = true })
+    vim.diagnostic.enable(true)
 end
----- Workaround for Cosmic Terminal
+-- Workaround for Cosmic Terminal
 vim.keymap.set("n", "<A-F>", format_code)
 vim.keymap.set("n", "<C-s>", ':<c-u>update<cr>')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
