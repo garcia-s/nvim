@@ -3,7 +3,6 @@ local api = require("Comment.api")
 local harpoon = require("harpoon")
 ------------ General -------------
 
-
 -- abre el explorador de archivos normal
 -- space->l->s
 vim.keymap.set("n", "<leader>ls", vim.cmd.Ex)
@@ -57,7 +56,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -------------- Comment line ----------------
 
-
 local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
 
 vim.keymap.set({ "n", "x" }, "<C-]>", function()
@@ -67,8 +65,6 @@ end)
 
 -- TODO: implement comment block
 
-
-
 --------------- Harpoooooooonnnn ----------------
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
@@ -77,3 +73,4 @@ vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:lis
 
 vim.keymap.set("n", "<C-a>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-d>", function() harpoon:list():next() end)
+

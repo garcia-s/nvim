@@ -4,25 +4,17 @@ return {
     lazy = false,
     config = function()
         --Stolen from tjdevries
-        vim.filetype.add {
+        --
+        vim.filetype.add({
             extension = {
-                templ = "templ"
-            }
-        }
-        vim.treesitter.language.register('templ', 'templ')
-        local configs = require("nvim-treesitter.configs")
-
-        if not configs.templ then
-            configs.templ = {
-                default_config = {
-                    cmd = { "templ", "lsp" },
-                    filetypes = { 'templ' },
-                    root_dir = require "lspconfig.util".root_pattern("go.mod", ".git"),
-                    settings = {},
-                },
-            }
-        end
-
+                gotmpl = 'gotmpl',
+            },
+            pattern = {
+                [".*/.*%.tpl"] = "helm",
+                [".*/.*%.ya?ml"] = "helm",
+            },
+        })
+    
         configs.setup({
             auto_install = true,
             highlight = {
