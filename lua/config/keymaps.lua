@@ -28,29 +28,30 @@ vim.keymap.set("n", "<leader>lg", builtin.live_grep)
 -- una clase, struct, variable o funcion
 -- g->d
 --
-vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
+vim.keymap.set("n", "gd", function() builtin.lsp_definitions() end)
+
 -- Te muestra la definicion de una
 -- una clase, struct, variable o funcion
 -- CTRL+i
 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
+
 -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
-vim.keymap.set('n', 'gi', function() vim.lsp_zero.buf.implementation() end)
+vim.keymap.set('n', 'gi', function() builtin.lsp_implementations() end)
 vim.keymap.set("n", "E", function() vim.diagnostic.open_float() end)
 vim.keymap.set("n", "<leader>j", function() vim.diagnostic.goto_next() end)
 vim.keymap.set("n", "<leader>k", function() vim.diagnostic.goto_prev() end)
 vim.keymap.set("n", "<leader>c", function() vim.lsp.buf.code_action() end)
-vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end)
+vim.keymap.set("n", "gr", function() builtin.lsp_references() end)
 vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end)
-
 -- Old workaround for dart
-
 local function format_code()
     vim.lsp.buf.format({ async = true })
     vim.diagnostic.enable(true)
 end
+
 -- Workaround for Cosmic Terminal
 vim.keymap.set("n", "<A-F>", format_code)
-vim.keymap.set("n", "<C-s>", ':<c-u>update<cr>')
+vim.keymap.set("n", "<C-s>", ':<c-u>write<cr>')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -63,8 +64,14 @@ vim.keymap.set({ "n", "x" }, "<C-]>", function()
     api.toggle.linewise(vim.fn.visualmode())
 end)
 
--- TODO: implement comment block
+vim.keymap.set({ "n", "x" }, "<C-]>", function()
+    vim.api.nvim_feedkeys(esc, 'nx', false)
+    api.toggle.blockwise(vim.fn.visualmode())
+end)
 
+
+-- TODO: implement comment block
+--
 --------------- Harpoooooooonnnn ----------------
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
@@ -74,3 +81,5 @@ vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:lis
 vim.keymap.set("n", "<C-a>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-d>", function() harpoon:list():next() end)
 
+
+vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua Rename.rename()<CR>', { silent = true })

@@ -26,9 +26,7 @@ return {
         }
         require("luasnip.loaders.from_vscode").lazy_load({})
         require("luasnip.loaders.from_vscode").lazy_load({
-            paths = {
-                vim.fn.expand("./symmetry-snippets"),
-            }
+            paths = { "./symmetry-snippets" }
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }

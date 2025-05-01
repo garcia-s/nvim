@@ -3,8 +3,9 @@ return {
     build = ":TSUpdate",
     lazy = false,
     config = function()
-        --Stolen from tjdevries
-        --
+        local configs = require("nvim-treesitter.configs")
+
+
         vim.filetype.add({
             extension = {
                 gotmpl = 'gotmpl',
@@ -14,7 +15,7 @@ return {
                 [".*/.*%.ya?ml"] = "helm",
             },
         })
-    
+
         configs.setup({
             auto_install = true,
             highlight = {

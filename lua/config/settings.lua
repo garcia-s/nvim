@@ -13,7 +13,9 @@ o.autoindent = true
 o.expandtab = true
 -- Number of spaces to use for each step of (auto)indent.
 o.shiftwidth = 4
-o.encoding = "UTF-8" -- Sets the character encoding used inside Vim.
+
+-- Sets the character encoding used inside Vim.
+o.encoding = "UTF-8"
 -- When on, the title of the window will be set to the value of 'titlestring'
 o.title = true
 
