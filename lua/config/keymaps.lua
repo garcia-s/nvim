@@ -35,14 +35,14 @@ vim.keymap.set("n", "gd", function() builtin.lsp_definitions() end)
 -- CTRL+i
 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
 
--- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
 vim.keymap.set('n', 'gi', function() builtin.lsp_implementations() end)
 vim.keymap.set("n", "E", function() vim.diagnostic.open_float() end)
 vim.keymap.set("n", "<leader>j", function() vim.diagnostic.goto_next() end)
 vim.keymap.set("n", "<leader>k", function() vim.diagnostic.goto_prev() end)
 vim.keymap.set("n", "<leader>c", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "gr", function() builtin.lsp_references() end)
-vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end)
+vim.keymap.set('n', '<leader>r', '<cmd>lua Rename.rename()<CR>', { silent = true })
+
 -- Old workaround for dart
 local function format_code()
     vim.lsp.buf.format({ async = true })
@@ -82,4 +82,3 @@ vim.keymap.set("n", "<C-a>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-d>", function() harpoon:list():next() end)
 
 
-vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua Rename.rename()<CR>', { silent = true })
