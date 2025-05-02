@@ -21,7 +21,7 @@ local function rename()
     local fmt = '<cmd>lua Rename.dorename(%d)<CR>'
 
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, { cword })
-    vim.keymap.set("n", "C",
+    vim.keymap.set("n", "<C-c>",
         function() vim.api.nvim_win_close(win, true) end,
         { buffer = buf, nowait = true, silent = true }
     )
@@ -43,3 +43,4 @@ _G.Rename = {
     rename = rename,
     dorename = dorename
 }
+

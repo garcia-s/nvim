@@ -1,6 +1,7 @@
 local builtin = require('telescope.builtin')
 local api = require("Comment.api")
 local harpoon = require("harpoon")
+local tiny = require("tiny-code-action")
 ------------ General -------------
 
 -- abre el explorador de archivos normal
@@ -39,7 +40,11 @@ vim.keymap.set('n', 'gi', function() builtin.lsp_implementations() end)
 vim.keymap.set("n", "E", function() vim.diagnostic.open_float() end)
 vim.keymap.set("n", "<leader>j", function() vim.diagnostic.goto_next() end)
 vim.keymap.set("n", "<leader>k", function() vim.diagnostic.goto_prev() end)
-vim.keymap.set("n", "<leader>c", function() vim.lsp.buf.code_action() end)
+vim.keymap.set("n", "<leader>ca",
+    function() tiny.code_action() end,
+    { noremap = true, silent = true }
+)
+
 vim.keymap.set("n", "gr", function() builtin.lsp_references() end)
 vim.keymap.set('n', '<leader>r', '<cmd>lua Rename.rename()<CR>', { silent = true })
 
@@ -56,7 +61,6 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -------------- Comment line ----------------
-
 local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
 
 vim.keymap.set({ "n", "x" }, "<C-]>", function()
@@ -80,5 +84,3 @@ vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:lis
 
 vim.keymap.set("n", "<C-a>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-d>", function() harpoon:list():next() end)
-
-
