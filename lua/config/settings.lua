@@ -1,5 +1,20 @@
 local o = vim.opt
 
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldenable = true
+
+-- Ajusta el nivel de fold inicial (0 = todo colapsado, 99 = todo expandido)
+o.foldlevel = 99
+
+-- Mostrar solo la primera línea del fold
+o.foldtext = 'v:lua.vim.treesitter.foldtext()'
+
+-- Alternativa más personalizada: mostrar solo la primera línea sin "lines: ..."
+o.foldtext = 'getline(v:foldstart)'
+
+-- Quitar el símbolo de líneas colapsadas si no te gusta el `+--` visualmente
+o.fillchars = { fold = " " }
 
 o.number = true
 o.relativenumber = true

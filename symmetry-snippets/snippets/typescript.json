@@ -1,1 +1,28 @@
-{}
+{
+    "JEST AAA TEST": {
+        "prefix": [
+            "aaa"
+        ],
+        "body": [
+            "test(\"${TestName}\", () => {",
+            "//Arrange",
+            "//Act",
+            "//Assert",
+            "})"
+        ],
+        "description": "Arrange act assert test template"
+    },
+    "react-component": {
+        "prefix": [
+            "rec"
+        ],
+        "body": [
+            "type ${1: Type} = {}",
+            "const ${2:Component}: React.FC<${1:Type}> = (props:{}) => {",
+            "    return <div></div>",
+            "}",
+            " export default ${2:Component}"
+        ],
+        "description": "Componente de react con tipo."
+    }
+}

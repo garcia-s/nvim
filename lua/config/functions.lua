@@ -1,26 +1,27 @@
 local function rename()
-    local editor_width = vim.o.columns
-    local editor_height = vim.o.lines
+
     local width = 40
-    local height = 4
+    local height = 1
     local opts = {
-        relative = "editor",
-        row = math.floor((editor_height - height) / 2 - 1),
-        col = math.floor((editor_width - width) / 2),
+        row = -3,
+        col = -1,
+        relative = "cursor",
         width = width,
         height = height,
         style = 'minimal',
-        title = "Rename",
         title_pos = "center",
         border = "double",
     }
 
     local cword = vim.fn.expand('<cword>')
+
+    opts.title = "Rename " .. cword
     local buf = vim.api.nvim_create_buf(false, true)
     local win = vim.api.nvim_open_win(buf, true, opts)
+    vim.cmd("startinsert!")
     local fmt = '<cmd>lua Rename.dorename(%d)<CR>'
 
-    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { cword })
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
     vim.keymap.set("n", "<C-c>",
         function() vim.api.nvim_win_close(win, true) end,
         { buffer = buf, nowait = true, silent = true }
@@ -43,4 +44,3 @@ _G.Rename = {
     rename = rename,
     dorename = dorename
 }
-
