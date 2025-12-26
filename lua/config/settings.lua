@@ -27,5 +27,7 @@ o.softtabstop = 4
 o.shiftwidth = 4
 
 o.cmdheight = 0
+
+vim.opt.termguicolors = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"

@@ -19,9 +19,9 @@ vim.g.maplocalleader = "\\"
 
 require("lazy").setup({
     spec = { { import = "plugins" } },
-    install = { colorscheme = { "oxocarbon" } },
     checker = { enabled = true },
 })
+
 -- Loading Keymaps after the setup
 require("config.functions")
 require("config.keymaps")
