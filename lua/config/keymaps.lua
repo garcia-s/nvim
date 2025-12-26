@@ -6,6 +6,9 @@ local tiny = require("tiny-code-action")
 
 -- abre el explorador de archivos normal
 -- space->l->s
+--
+
+vim.keymap.set("n", "<C-p>", function() vim.cmd("@:") end)
 vim.keymap.set("n", "<leader>ls", vim.cmd.Ex)
 
 ---------------- Telescope ----------------
