@@ -1,7 +1,8 @@
 local o = vim.opt
 
+
 o.foldmethod = "expr"
-o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 o.foldenable = true
 
 o.foldlevel = 99
@@ -31,3 +32,10 @@ o.cmdheight = 0
 vim.opt.termguicolors = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
+
+-- Register .templ filetype
+vim.filetype.add({
+    extension = {
+        templ = "templ",
+    },
+})
